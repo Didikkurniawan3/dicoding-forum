@@ -29,7 +29,7 @@ function CreateComment({ createComment }) {
           className="btn btn-success float-end mt-2"
           onClick={onCommentSubmit}
         >
-          Post
+          Post fdkfds
         </button>
       </div>
     </div>
