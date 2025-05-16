@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ButtonVote({
+function VoteButton({
   id,
   upVotesBy,
   downVotesBy,
@@ -10,11 +10,12 @@ function ButtonVote({
   downVote,
   neutralizeVote,
 }) {
-  const isUpVoted = authUser ? upVotesBy.includes(authUser) : false;
+  const isUpVoted = upVotesBy.includes(authUser);
   const isDownVoted = downVotesBy.includes(authUser);
 
   return (
     <>
+      {/* Tombol UpVote */}
       {isUpVoted ? (
         <button
           type="button"
@@ -33,6 +34,7 @@ function ButtonVote({
         </button>
       )}
 
+      {/* Tombol DownVote */}
       {isDownVoted ? (
         <button
           type="button"
@@ -54,7 +56,7 @@ function ButtonVote({
   );
 }
 
-ButtonVote.propTypes = {
+VoteButton.propTypes = {
   id: PropTypes.string.isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -64,4 +66,4 @@ ButtonVote.propTypes = {
   neutralizeVote: PropTypes.func.isRequired,
 };
 
-export default ButtonVote;
+export default VoteButton;

@@ -57,7 +57,7 @@ describe('CreateThread component', () => {
     expect(createThreadMock).toHaveBeenCalledWith({
       title: 'New Thread Title',
       category: 'General',
-      content: 'This is the content of the new thread',
+      body: 'This is the content of the new thread',
     });
   });
 });

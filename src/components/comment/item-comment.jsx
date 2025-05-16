@@ -4,7 +4,7 @@ import VoteButton from '../button-vote/button-vote';
 import { postedAt } from '../../utils';
 import parse from 'html-react-parser';
 
-function ItemComment({
+function CommentItem({
   id,
   content,
   createdAt,
@@ -32,14 +32,16 @@ function ItemComment({
           </div>
         </div>
         <p className="card-text">{parse(content)}</p>
+
+        {/* Kirim langsung upVotesBy dan downVotesBy, tidak dimodifikasi */}
         <VoteButton
           id={id}
           upVotesBy={upVotesBy}
           downVotesBy={downVotesBy}
+          authUser={authUser}
           upVote={upVote}
           downVote={downVote}
           neutralizeVote={neutralizeVote}
-          authUser={authUser}
         />
       </div>
     </div>
@@ -61,7 +63,7 @@ const commentShape = {
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-ItemComment.propTypes = {
+CommentItem.propTypes = {
   ...commentShape,
   authUser: PropTypes.string.isRequired,
   upVote: PropTypes.func.isRequired,
@@ -70,5 +72,4 @@ ItemComment.propTypes = {
 };
 
 export { ownerShape, commentShape };
-
-export default ItemComment;
+export default CommentItem;
