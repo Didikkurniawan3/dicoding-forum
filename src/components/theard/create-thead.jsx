@@ -15,7 +15,7 @@ const CreateThread = ({ createThread }) => {
       return;
     }
 
-    createThread({ title, category, content });
+    createThread({ title, category, body: content });
     toast.success('Thread created successfully');
   };
 
